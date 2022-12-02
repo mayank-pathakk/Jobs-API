@@ -23,7 +23,7 @@ const errorHandlerMiddleware = (err, req, res, next) => {
     customError.statusCode = 400;
     customError.message = `Duplicate value entered for ${Object.keys(
       err.keyValue
-    )} field , please choose another value`;
+    )} field , please choose different value`;
   }
 
   return res.status(customError.statusCode).json({ msg: customError.message });
