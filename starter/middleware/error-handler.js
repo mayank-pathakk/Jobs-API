@@ -1,7 +1,5 @@
 const { StatusCodes } = require("http-status-codes");
 const errorHandlerMiddleware = (err, req, res, next) => {
-  // console.log(err);
-
   let customError = {
     statusCode: err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
     message: err.message || `Something went wrong , try again later...`,
@@ -21,7 +19,7 @@ const errorHandlerMiddleware = (err, req, res, next) => {
 
   if (err.code && err.code === 11000) {
     customError.statusCode = 400;
-    customError.message = `Duplicate value entered for ${Object.keys(
+    customError.message = `Duplicate value for ${Object.keys(
       err.keyValue
     )} field , please choose different value`;
   }
