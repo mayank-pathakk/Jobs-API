@@ -4,7 +4,7 @@ const { UnauthenticatedError } = require("../errors");
 const auth = (req, res, next) => {
   const authHeaders = req.headers.authorization;
   if (!authHeaders || !authHeaders.startsWith("Bearer ")) {
-    throw new UnauthenticatedError("No auth headers");
+    throw new UnauthenticatedError("No auth headers found in the request");
   }
 
   const token = authHeaders.split(" ")[1];
@@ -18,4 +18,4 @@ const auth = (req, res, next) => {
   }
 };
 
-module.exports = auth
+module.exports = auth;
