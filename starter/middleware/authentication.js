@@ -14,7 +14,7 @@ const auth = (req, res, next) => {
     req.user = { userId, name };
     next();
   } catch (err) {
-    throw new UnauthenticatedError("Invalid user credentials");
+    throw new UnauthenticatedError("Invalid user credentials.. password");
   }
 };
 
